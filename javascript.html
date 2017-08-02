@@ -1,0 +1,156 @@
+<script>
+// ****************** FUNZIONE CHE RENDERIZZA LA TABELLA FILTRATA CON IL PLUG_IN DATATABLES ****************************
+    function renderTable(){
+
+       $('#myTb').empty();
+
+        google.script.run
+        .withSuccessHandler(onReadData)
+        .readData()
+   }
+   
+    // ------------- 
+      
+    function onReadData(dataObject){
+      
+      moment.locale('it')
+      // parse necessario se l'oggetto viene restituito come JSON
+      dataObject = JSON.parse(dataObject)
+
+      // estrae le proprietà dell'oggetto
+       var keys = [];
+           for(var key in dataObject.table[0]){
+              keys.push(key);
+           }
+       
+       console.log(keys)
+       
+       console.log ( dataObject.table[0])
+     
+      $(document).ready(function (){
+        
+        // ------------- Definizione variabile myTb
+        
+        var myTb = $('#myTb').DataTable({
+        
+        dom: 'Bfrltip',
+        
+        buttons: [
+        
+               { text: 'Inserisci', 
+                 action: function (e, dt, node, conf) { window.open('https://docs.google.com/a/aci.it/forms/d/e/1FAIpQLSfPmUXInUOZwBCLhPikEPHTCh-2-vrAT0WWmhr6BJTeInmovw/viewform', '_blank' );} 
+               
+               },
+                'copyHtml5',                                                            
+                'excelHtml5',
+               { extend: 'csvHtml5', text: 'XLS', orientation: 'landscape', alignment: 'center', exportOptions: {   columns: [ 1, 2, 3, 4, 5, 6, 8 ] } },
+               { extend: 'pdfHtml5', text: 'PDF', orientation: 'landscape', alignment: 'center', exportOptions: {   columns: [ 1, 2, 3, 4, 5, 6, 8 ] }, 
+                   styles: { layout: 'lightHorizontalLines', tableHeader:{ fillColor:"#F0F8FF" }, }, },
+                ],
+              
+        columns: [
+
+          { data: 'Update', title: "Modulo"},
+          { data: 'Mese', title: "Mese", visible: false},
+          { data: 'Data', title: "Giorno", visible: true },  // type: 'string'
+          { data: 'Ufficio', title: "Ufficio", visible: true},
+          { data: 'STRT cartelle esattoriali', title: "STRT cartelle esattoriali"},
+          { data: 'GTART avvisi bonari', title: "GTART avvisi bonari"},
+          { data: 'GTART portatori handicap', title: "GTART portatori handicap"},
+          { data: 'GTART rimborsi', title: "GTART rimborsi"},
+          { data: 'GTART esenzioni concessionari', title: "GTART esenzioni concessionari"},
+          { data: 'N° Funzionari', title: "N° Funzionari"},
+          { data: 'Ruolo', title: "Ruolo", visible: false },
+          { data: 'Nome utente', title: "Redattore", visible: true },
+
+                
+          ],
+          
+        columnDefs: [
+
+        { targets: '_all', visible: true },
+        { targets: [0], render: function ( data, type, row) {
+            if(row.Ruolo == 'Viewer'){
+              return '<button class="btn btn-outline btn-info waves-effect disabled">Inibito</button>'; }
+              else return '<a href='+data+' class="btn btn-outline btn-danger waves-effect" target="_blank">Modifica</a>';}
+              },       
+         { targets: [2], render: function ( data, type, row) {
+              return moment(data).format('YYYY/MM/DD') }
+              },
+      
+          ],
+          
+          data: dataObject.table,
+          responsive: true,
+          scrollCollapse: true,
+          scrollY: 400,
+          paging: true,
+          paginationType: 'full',
+          order: [[ 3, 'asc' ]],
+          ordering: true, // abilita disabilita l'ordinamento nelle colonne
+          displayLength: 25,
+          lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+          autoWidth: true,
+          fixedColumns: { leftColumns: 2 },
+
+        // -------------  Datatables Row grouping
+/*
+          drawCallback: function ( settings ) {
+                   
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(1, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group"><td colspan="24">'+group+'</td></tr>'
+                    );
+                    last = group;
+                }
+            });
+            
+           }
+*/
+         // ------------- Fine Datatables Row grouping
+          
+         });
+      
+         // ------------- Fine definizione variabile myTb
+/*            
+         // ------------- Gestione Pulsante Child Row
+  
+          $('.dataTable').on('click', 'td.details-control', function () { 
+              
+
+              var classDetails = this.className
+              var tr = $(this).closest('tr');
+              var th = $(this).closest('table').find('th').eq($(this).index());
+              var row = myTb.row( tr );
+              var column = th.text()
+               $('#my-modal').modal({
+                  show: 'true'
+                }); 
+
+              if ( row.child.isShown() ) {
+              console.log('row child is alredy shown')
+         // This row is already open - close it
+              row.child.hide();
+              tr.removeClass('shown');
+              }
+              else {
+         // Open this row
+              console.log(classDetails)
+              console.log('row child ' + 'of row ' + row + ' is not already shown')
+                  row.child(list(row.data(),column)).show();
+                  tr.addClass('shown');                 
+
+               };
+            });
+  */        
+          // ------------- Gestione Pulsante Child Row
+          
+       })
+     }
+
+</script>

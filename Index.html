@@ -1,295 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
   <head>
-    <base target="_top">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/multiple-select/1.2.0/multiple-select.css"/>
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid-theme.min.css" />
-    <!-- link rel="stylesheet" href="/resources/demos/style.css" -->
+  <base target="_top">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/multiple-select/1.2.0/multiple-select.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <meta ID="description" content="">
+  <meta ID="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  
+  <!--BOOTSTRAP-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
+  
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <style>
-    fieldset {
-      border: 0;
-    }
-    label {
-      display: "block";
-      margin: 30px 0 0 0;
-    }
-    .overflow {
-      height: 200px;
-    }
-  </style>
+  <!--Bootstrap-validator-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
   
-<!-- inserimento filtri ricerca con metodo modal JQUERY UI FORM -->
- 
-  <style>
-    label, input { display:"block"; }
-    input.text { margin-bottom:12px; width:30%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#filter-contain { width: 350px; margin: 20px 0; }
-    div#filter-contain table { margin: 1em 0; border-collapse: "collapse"; width: 100%; }
-    div#filter-contain table td, div#filter-contain table th { border: 1px "solid" #eee; padding: .6em 10px; text-align: "left"; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px "solid transparent"; padding: 0.3em; }    
-    <!-- personalizzazione dei CSS di Bootstrap personalizza il colore di hover sulla table-->
-    .table-hover tbody tr:hover td 
-    {
-        background-color: #428bca;
-        }     
-  </style>
+  <!--Bootstrap-switch-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css">
+  
+  <!--moment.js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+  <!--script src="https://http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/locale/it.js"></script>
+  
+  <!--Bootstrap-dateTimepicker-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.css" />
+  
+    <!-- Bootstrap-select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+  
+   <!--PDFMake-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.24/pdfmake.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.24/vfs_fonts.js"></script>
+  
+   <!--SerializeJSON-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.7.2/jquery.serializejson.js"></script>
+  
 
-  <script>
   
-   // Definisce gli oggetti: #ufficio e #datepicker
-   $( function() { $( "#ufficio" ).selectmenu(); $( "#mese" ).selectmenu(); } ); 
-   $( function() { $( "#date-start" ).datepicker({dateFormat: 'dd/mm/yy'}); $( "#date-end" ).datepicker({dateFormat: 'dd/mm/yy'}); } );
-   $( function() { $( "#create-filter" ).button()} );
-   
-  </script>
-  
-  <script>
-   
-   $( function() {
-    var ufficio = $( "#ufficio" ),
-        mese = $( "#mese" ),
-        datastart = $( "#datastart" ),
-        dataend = $( "#dataend" );
-
-
-    $("#create-filter").click(function(){
-     var parameters = $("#add-elemento").serializearray(); //recupera tutti i valori del form automaticamente
-    //form invio dati post ajax
- 
-    //questo alert potete levarlo, serve solo per farvi capire come vengono passati i dati
-    alert(parameters);
-    
- 
- /*   //invio
-    $.ajax({
-    type: "POST",
-    url: ,
-    data: parameters,
-    dataType: "json",
-       success: function(msg)
-             {
-             $("#risultato").html(msg);
-             console.log(msg);
-              },
-       error: function()
-             {
-       alert("Richiesta fallita, si prega di riprovare");
-        }
-      });  //ajax
-    });  //bottone click
-  });
-  
-  */
-    
-  $.ajax({
-        type: "POST",
-        // url: "https://script.google.com/a/macros/aci.it/s/AKfycbwIWGs-KSOjHQ9fzPAYCfb9acj47OMfHzTZ0DbeirUNyQ8taZs/",
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify({
-            ufficio: $("#ufficio").val(),
-            mese: $("#mese").val(),
-            datastart: $("#datastart").val(),
-            dataend: $("#dataend").val()
-            }),
-        success: function(renderTable) {
-        alert("Richiesta esaudita");
-        console.log(renderTable);
-        },
-        error: function(renderTable) {
-        alert("Richiesta fallita, si prega di riprovare");
-        console.log(renderTable);
-        }
-});
-  
-  
-  
-  </script>
-<!-- Fine script per caricamento filtri di ricerca con metodo modal JQUERY UI FORM -->
 </head>
 
-<!-- *********************************************************************************************************  -->
-<div class="container-fluid">
-  <div class="jumbotron">
-     <h1>Produzione UAB Toscana</h1>
-    <p>Attività svolte dagli uffici TASSE dei PRA toscani</p>
-  </div>
-<!-- *********************************************************************************************************  -->
-<div id="dialog-form" title="Inserisci Filtro: Ufficio, Data Iniziale, Data Finale o mese">
-  <p class="validateTips">Filtra la rilevazione desiderata per Ufficio</p>
-    <form id="add-elemento" action="#">
-    <!-- form class="form-horizontal" role="form" id="test-form" -->
-    <fieldset>
-      <label for="ufficio"> Ufficio: </label>
-      <select name="ufficio" id="ufficio">
-      <option>Arezzo</option>
-      <option>Firenze</option>
-      <option>Grosseto</option>
-      <option>Livorno</option>
-      <option>Lucca</option>
-      <option>Massa Carrara</option>
-      <option>Pisa</option>
-      <option>Pistoia</option>
-      <option>Prato</option>
-      <option>Siena</option>
-      <option selected="selected">ALL</option>
-    </select>
-    <br>
-    <br>
-      <label for="mese"> Mese:   </label>
-      <select name="mese" id="mese">
-      <option>Gennaio</option>
-      <option>Febbraio</option>
-      <option>Marzo</option>
-      <option>Aprile</option>
-      <option>Maggio</option>
-      <option>Giugno</option>
-      <option>Luglio</option>
-      <option>Agosto</option>
-      <option>Settembre</option>
-      <option>Ottobre</option>
-      <option>Novembre</option>
-      <option>Dicembre</option>
-      <option selected="selected"></option>
-    </select>
-    <br>
-    <br>
-      <label for="datastart"> Data Inizio: </label>
-      <input type="text" name="datastart" id="date-start" class="text ui-widget-content ui-corner-all">
-      <label for="dataend"> Data Fine: </label>
-      <input type="dataend" name="dataend" id="date-end" class="text ui-widget-content ui-corner-all">
-      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-     </fieldset>
-  </form>
-</div>
-<!-- *********************************************************************************************************  -->
-<button id="create-filter">Filtra</button> <!---- convalida della Form -->
-<body onload="renderTable()">
-<div id="filter-contain" class="ui-widget">
-  <div class="table-responsive">
-    <div class="bodycontainer scrollable">
-    <table id="myTb" class="table table-striped table-bordered table display" cellspacing="0" width="100%">
-      <thead>
+<div class="col-xs-12 col-sm-12 col-md-12" align="center" style="background-color:rgb(250,250,250)">
+    <h1>Produzione UABNET Gtart</h1>
+    <p>il <b>RUT</b> dell'U.T. inserisce/modifica la produzione quotidiana; a fine mese la <b>Dir.Comp.</b> estrae e comunica i dati a <b>Ufficio Produttività</b></p>
+    <p>il campo <em>Search:</em> filtra i dati desiderati, ad es.: Ufficio Mese Anno = <em>Lucca Luglio 2017</em></p>
+  <body onload="renderTable()" style="background-color:rgb(200,200,200)">
+    <div class="table-responsive col-xs-12 col-sm-12 col-md-12 bodycontainer scrollable" align="center">
+      <table id="myTb" class="table table-striped table-bordered table display" cellspacing="0" width="100%" height="100%">
+        <thead><th></th></thead>
         <tr></tr>
-      </thead>
-    </table>
-  </div>
-</div>
-</div>
-</body>
+        <tfoot><th></th></tfoot>
+        <tr></tr>
+      </table>
+    
+    </div>
+  </body>
+<!-- ************* Configurazione Librerie ********************************  -->
+
+  <?!= include('SettingsCSS'); ?>
+  <?!= include('styleCSS'); ?>
+  <?!= include('javascript'); ?>
+  <!-- ?!= include('javascriptChildRow');? -->
+  <!-- ?!= include('modalCarousel');? -->
+
 </div>
 </html>
-<script>
-
-
-
-// ****************** FUNZIONE CHE RENDERIZZA LA TABELLA FILTRATA CON IL PLUG_IN DATATABLES ****************************
-    function renderTable(parameters){
-       $('#myTb').empty();
-
-        google.script.run
-        .withSuccessHandler(onReadTable)
-        .readTable(parameters)
-  }    
-      window.onReadTable = function(dataObject){
-       console.log(dataObject)
-       
-             
-      // configurazione avanzata: 
-     $(document).ready(function (){
-      var myTb = $('#myTb').DataTable({
-        data: dataObject.table,
-      
-     // se nel DOM esiste solo un tag <table> senza <thead>
-     // si possono visualizzare liberamente le colonne che si vogliono 
-     // cambiando l'ordine degli elementi in columns, cambia l'ordine di visualizzazione in tabella 
-       
-       scrollY:'50vh', // abilita la barra di scorrimento verticale all'interno della tabella 
-       scrollCollapse: true,
-       scrollX: true, // abilita la barra di scorrimento orizzontale all'interno della tabella 
-       paging: true, // abilita disabilita la paginazione della tabella
-       ordering: true, // abilita disabilita l'ordinamento nelle colonne
-       order: [[0,"asc"],[1,"desc"],[2,"asc"]], // configura le regole di ordinamento per colonna
-       columns: [
-          { data: 'Data°', title: "Data"},
-          { data: 'Ufficio', title: "Ufficio" },
-          { data: 'STRT cartelle esattoriali', title: "STRT cartelle esattoriali" },
-          { data: 'GTART avvisi bonari', title: "GTART avvisi bonari" },
-          { data: 'GTART portatori handicap', title: "GTART portatori handicap" },
-          { data: 'GTART rimborsi', title: "GTART rimborsi" },
-          { data: 'GTART esenzioni concessionari', title: "GTART esenzioni concessionari" },
-          { data: 'N° Funzionari', title: "N° Funzionari" },
-          { data: 'Nome utente', title: "Inseritore" },        
-          ],
-        // da studiare columns.render e columns.data molto utili ad esempio per formattare le date
-        // permette di specificare attributi per singole colonne o gruppi di colonne, 
-        //i numeri positivi in target indicano l'indice di colonna contando da sinistra, quelli negativi contando da destra
-        columnDefs: [ 
-     //   { targets: [1,-1], visible: true, "searchable": false},
-     //    { targets: [0,2], visible: true, "searchable": true}, // nell'esempio si può cercare sono per N° e
-         { targets: '_all', visible: true, "searchabke": true },
-       ],
-       
-       
-       // Extensions (Buttons, Filtering, ecc)
-      
-       initComplete: function () {
-         var api = this.api();
-         
-         // filtri di colonna sul footer (da far funzionare )
-         api.columns().every( function () {
-           var column = this;
-           console.log(column)
-           var select = $('<select><option value=""></option></select>')
-             .appendTo( $(column.footer()).empty() )
-             .on( 'change', function () {
-               var val = $.fn.dataTable.util.escapeRegex(
-                 $(this).val()
-               );
-               column
-                  .search( val ? '^'+val+'$' : '', true, false )
-                  .draw();
-             } );
-         
-             column.data().unique().sort().each( function ( d, j ) {
-               select.append( '<option value="'+d+'">'+d+'</option>' )
-             } );   
-   
-         } );
-
-         // bottone PDF (OK !)
-
-         new $.fn.dataTable.Buttons(api, {
-           buttons: [
-             'pdfHtml5', 'copy', 'excel'
-           ]
-         });
-         api.buttons().container().appendTo( '#' + api.table().container().id + ' .col-sm-6:eq(0)' );
-       }
-    });
- });
-}

@@ -1,0 +1,148 @@
+<style>
+
+
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+<!-- fixed table header non funzionante-->
+.table-fixed thead {
+  width: 100%;
+}
+.table-fixed tbody {
+ <!-- height: 230px;-->
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+
+
+#tableDiffide > thead > tr > th > input {
+  font-size: 12px;
+}
+
+paragraph
+{
+font-size: 14px;
+}
+
+#outputPanelText > p
+{
+font-size: 12px;
+}
+input[type="text"]
+{
+    font-size: 14px;
+}
+
+
+.table > tbody > tr > td {
+       font-size: 14px;
+       vertical-align: middle;      
+}
+
+
+#filesPanel > div.panel-body {
+  overflow-y:scroll;
+  height:200px;
+}
+#diffidePanel > div.panel-body {
+  overflow-y:scroll;
+  height:400px;
+}
+
+.filterable {
+    margin-top: 17px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -22px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: 12px;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+
+/* checkbox aspect */
+ input[type="checkbox"]:not(:checked),
+ input[type="checkbox"]:checked {
+ content: '';
+ position: relative;
+ left:0; top: 2px;
+ width: 10px; height: 10px;
+ border: 1px solid #aaa;
+ background: #f8f8f8;
+ border-radius: 3px;
+ box-shadow: inset 0 1px 3px rgba(0,0,0,0);
+ }
+ 
+/* loader */
+.glyphicon-refresh-animate {
+   -webkit-animation-name: rotateThis;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+}
+
+.glyphicon-import-animate {
+   -webkit-animation-name: rotateThis;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes "rotateThis" {
+ from { 
+        -webkit-transform: rotate( 0deg );  
+    }
+ to  { 
+        -webkit-transform: rotate( 360deg ); 
+    }
+}
+
+body .modal {
+    /* new custom width */
+    width: 900px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: 470px;
+}
+</style>
